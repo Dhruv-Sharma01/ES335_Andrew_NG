@@ -1,0 +1,19 @@
+import pandas as pd
+import numpy as np
+
+# Load the features
+features = pd.read_csv(r'HAR/UCI HAR Dataset/features.txt', delim_whitespace=True, header=None)
+
+feature_names = features[1].values  # Extract the feature names
+
+# Load the training data
+X_train = pd.read_csv(r'HAR/UCI HAR Dataset/train/X_train.txt', delim_whitespace=True, header=None)
+X_train.columns = feature_names  # Assign feature names to columns
+
+# Load the labels
+y_train = pd.read_csv(r'HAR/UCI HAR Dataset/train/y_train.txt', delim_whitespace=True, header=None)
+y_train.columns = ['Activity']  # Give a meaningful name to the column
+
+# print(X_train)
+
+print(X_train.columns)
